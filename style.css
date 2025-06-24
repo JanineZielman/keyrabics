@@ -54,9 +54,10 @@ body {
   left: 0;
   background-color: coral;
   padding: 8px;
-  font-size: 24px;
+  font-size: 18px;
   display: flex;
   justify-content: space-between;
+  color: black!important;
 }
 .wrapper{
   margin-top: 100px;
@@ -65,7 +66,7 @@ body {
 button{
   border: none;
   background-color: transparent;
-  font-size: 24px;
+  font-size: 18px;
 }
 button:hover{
   cursor: pointer;
