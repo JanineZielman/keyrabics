@@ -50,11 +50,11 @@ const layout = [
         } else {
           button.addEventListener('click', () => {
             if (key === 'حذف') {
-              output.value = output.value.slice(0, -1);
+              output.innerHTML = output.innerHTML.slice(0, -1);
             } else if (key === 'غلق') {
-              output.value = '';
+              output.innerHTML = '';
             } else {
-              output.value += key;
+              output.innerHTML += key;
             }
           });
         }
@@ -65,9 +65,9 @@ const layout = [
     document.addEventListener('keydown', (e) => {
       const key = e.key.toLowerCase();
       if (key === 'backspace') {
-        output.value = output.value.slice(0, -1);
+        output.innerHTML = output.innerHTML.slice(0, -1);
       } else if (key === 'escape') {
-        output.value = '';
+        output.innerHTML = '';
       } 
       // else if (keyMap[key]) {
       //   output.value += keyMap[key];
