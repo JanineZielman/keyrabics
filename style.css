@@ -95,4 +95,7 @@ button:hover{
     font-size: 16px;
     padding: 5px;
   }
+  .wrapper{
+    max-width: 95vw;
+  }
 }
