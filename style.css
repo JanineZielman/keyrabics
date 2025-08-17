@@ -9,23 +9,63 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f9f9f9;
+  background: #dcdffa;
   margin: 0;
   max-width: 100%;
   overflow-x: hidden;
 }
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: fixed;
+  z-index: 9;
+  background: linear-gradient(180deg,rgba(255, 127, 80, 1) 20%, rgba(255, 127, 80, 0) 100%);
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: end;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+#controls *{
+  font-size: 16px;
+}
+
 #output {
+  position: relative;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  font-size: 52px;
-  margin-bottom: 1rem;
+  /* min-height: 200px; */
+  /* margin-bottom: 1rem; */
   direction: rtl;
   font-family: "Amiri", serif;
-  text-align: center;
-  border-bottom: 2px solid black;
-  line-height: 1.2;
+  /* border-bottom: 2px solid black; */
+  overflow: hidden;
+  background: white;
+  margin-top: 50px;
+  font-size: 52px;
 }
+
+.textField {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: move;
+  outline: none;
+  white-space: pre-wrap;
+  font-size: inherit;
+  color: inherit;
+}
+.textField:focus {
+  border: 1px dashed #aaa;
+  cursor: text;
+}
+
 .keyboard {
   display: grid;
   grid-template-columns: repeat(15, 50px);
@@ -44,24 +84,26 @@ body {
   font-size: 1.2rem;
   user-select: none;
 }
-.wide {
-  grid-column: span 2;
+.key:active {
+  background-color: #444;
 }
+
+.wrapper{
+  margin-top: 20px;
+  max-width: 900px;
+}
+
 .menu{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   left: 0;
-  background-color: coral;
+  background: linear-gradient(180deg,rgba(255, 127, 80, 0) 0%, rgba(255, 127, 80, 1) 80%);
   padding: 8px;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
   color: black!important;
-}
-.wrapper{
-  margin-top: 100px;
-  max-width: 900px;
 }
 button{
   border: none;
@@ -71,11 +113,21 @@ button{
 button:hover{
   cursor: pointer;
 }
-@media print{
+
+input, select{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+@media print {
   body{
     background-color: transparent;
+    display: block;
+    flex-direction: column;
+    align-items: center;
   }
-  .hide{
+  .menu, #controls, .keyboard{
     display: none;
   }
   #output {
@@ -83,8 +135,39 @@ button:hover{
     outline: none;
     appearance: none;
     background-color: transparent;
+    margin: 0 0;
+    margin-top: -20px;
   }
+
+  #output[data-ratio="1:1"] { page: ratio-1-1; }
+  #output[data-ratio="4:3"] { page: ratio-4-3; }
+  #output[data-ratio="3:4"] { page: ratio-3-4; }
+  #output[data-ratio="16:9"] { page: ratio-16-9; }
+  #output[data-ratio="9:16"] { page: ratio-9-16; }
+
+
+  /* @page ratio-1-1 {
+    size: 472.5px 472.5px;
+    margin: 0;
+  }
+  @page ratio-4-3 {
+    size: 630px 472.5px; 
+    margin: 0;
+  }
+  @page ratio-3-4 {
+    size: 472.5px 630px; 
+    margin: 0;
+  }
+  @page ratio-16-9 {
+   size: 840px 472.5px;
+    margin: 0;
+  }
+  @page ratio-9-16 {
+    size: 472.5px 840px; 
+    margin: 0;
+  } */
 }
+
 
 @media only screen and (max-width: 600px)  {
   .keyboard{

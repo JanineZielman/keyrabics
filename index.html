@@ -8,16 +8,53 @@
 </head>
 <body>
 
-  <div class="wrapper">
-    <div id="output" contenteditable="true">اكتب هنا...</div>
-    <div class="keyboard hide" id="keyboard"></div>
+  <div id="controls">
+    <label>
+      <select id="fontSelect">
+        <option value="Amiri" selected>Amiri (default)</option>
+        <option value="Arial">Arial</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Noto Naskh Arabic">Noto Naskh Arabic</option>
+      </select>
+      :Font
+    </label>
+  
+    <label>
+      Size:
+      <input type="number" id="fontSize" min="12" max="100" value="52"> px
+    </label>
+  
+    <label>
+      <input type="color" id="fontColor" value="#000000">
+      :Color
+    </label>
+    
+    <label>
+      <select id="aspectRatio">
+        <option value="16:9" selected>16:9</option>
+        <option value="4:3">4:3</option>
+        <option value="1:1">1:1</option>
+        <option value="3:4">3:4</option>
+        <option value="9:16">9:16</option>
+      </select>
+      :Ratio (W:H)
+    </label>
+
+    <button id="addTextBtn">Add Text</button>
   </div>
+  
+  <div class="wrapper">
+    <div id="output"></div>
+  </div>
+
+  <div class="keyboard" id="keyboard"></div>
 
   <div class="menu hide">
     <button onclick="window.print()">SAVE</button>
     <div>Keyrabics ©</div>
   </div>
-
 
   <script src="script.js"></script>
 </body>
