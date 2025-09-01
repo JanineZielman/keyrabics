@@ -60,6 +60,8 @@ body {
   white-space: pre-wrap;
   font-size: inherit;
   color: inherit;
+  line-height: 1.2;
+  margin: 0;
 }
 .textField:focus {
   border: 1px dashed #aaa;
@@ -145,27 +147,6 @@ input, select{
   #output[data-ratio="16:9"] { page: ratio-16-9; }
   #output[data-ratio="9:16"] { page: ratio-9-16; }
 
-
-  /* @page ratio-1-1 {
-    size: 472.5px 472.5px;
-    margin: 0;
-  }
-  @page ratio-4-3 {
-    size: 630px 472.5px; 
-    margin: 0;
-  }
-  @page ratio-3-4 {
-    size: 472.5px 630px; 
-    margin: 0;
-  }
-  @page ratio-16-9 {
-   size: 840px 472.5px;
-    margin: 0;
-  }
-  @page ratio-9-16 {
-    size: 472.5px 840px; 
-    margin: 0;
-  } */
 }
 
 
